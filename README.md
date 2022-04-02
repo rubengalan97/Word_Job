@@ -30,4 +30,5 @@ Esta aplicación nos proporciona tanto la creación como la búsqueda de empleo.
 
 ## Modelo de la base de datos
 
-![Esquema_proyecto](https://user-images.githubusercontent.com/72375245/161384521-a2d4ab0a-b48b-4e5d-85e4-85673af87c85.png)
+![Esquema_proyecto](https://user-images.githubusercontent.com/72375245/161384783-2aba7ee1-bcf5-4260-aaab-eb7db29d0192.png)
+
