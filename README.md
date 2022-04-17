@@ -33,4 +33,5 @@ Esta aplicación nos proporciona tanto la creación como la búsqueda de empleo.
 ![Esquema_proyecto](https://user-images.githubusercontent.com/72375245/161384783-2aba7ee1-bcf5-4260-aaab-eb7db29d0192.png)
 
 ## Mockup
-![Figma de la aplicacion](https://www.figma.com/file/NqlPuCS4l0UzUfOepzb2Kv/World-Job)
+https://www.figma.com/file/NqlPuCS4l0UzUfOepzb2Kv/World-Job
+
