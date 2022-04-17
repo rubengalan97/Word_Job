@@ -22,7 +22,7 @@ Esta aplicación nos proporciona tanto la creación como la búsqueda de empleo.
 ### BackEnd
 - Como gestor de base de datos usaré Mysql.
 - Como lenguaje de programación usaré PHP.
-- Como framework usaré Laravel o Symfony (aun por determinar)
+- Como framework usaré Laravel.
 
 ### FrontEnd
 - Como preprocesador usaré SASS.
