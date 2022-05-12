@@ -38,3 +38,5 @@ Esta aplicación nos proporciona tanto la creación como la búsqueda de empleo.
 - Es un prototipo
 https://www.figma.com/file/NqlPuCS4l0UzUfOepzb2Kv/World-Job
 
+## Video checkpoint dia 13 de Mayo.
+- https://youtu.be/0SWkJ_jVc0M
