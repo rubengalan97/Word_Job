@@ -14,8 +14,24 @@ class CreateSolicitudTable extends Migration
     public function up()
     {
         Schema::create('solicitud', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->unsignedInteger('idUsu');
+            $table->unsignedInteger('idOfe');
+            $table->primary(['idUsu', 'idOfe']);
+            $table->string('estado', 50)->default('Pendiente');
+        });
+
+        //Relaciones
+
+        Schema::table('solicitud', function (Blueprint $table) {
+
+            $table->foreign('idUsu')->references('idUsu')
+                                    ->on('users')
+                                    ->onDelete('cascade');
+
+            $table->foreign('idOfe')->references('idOfe')
+                                    ->on('oferta')
+                                    ->onDelete('cascade');
+
         });
     }
 
