@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Ciudad;
 
 class CiudadFactory extends Factory
 {
@@ -11,10 +12,14 @@ class CiudadFactory extends Factory
      *
      * @return array
      */
+
+    protected $model = Ciudad::class;
+
     public function definition()
     {
         return [
-            //
+            'idCiu'     => null,
+            'ciudad'    => $this->faker->city(),
         ];
     }
 }

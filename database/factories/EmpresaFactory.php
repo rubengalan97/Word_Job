@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Empresa;
 
 class EmpresaFactory extends Factory
 {
@@ -11,10 +12,16 @@ class EmpresaFactory extends Factory
      *
      * @return array
      */
+
+    protected $model = Empresa::class;
+
     public function definition()
     {
         return [
-            //
+            'idEmp'         => null,
+            'nombre'        => $this->faker->name(),
+            'imagen'        => null,
+            'descripcion'   => null,
         ];
     }
 }
