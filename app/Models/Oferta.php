@@ -13,7 +13,7 @@ class Oferta extends Model
     protected $primaryKey = 'idOfe';
     public $timestamps = false;
 
-    protected $fillable = ["descripcion"];
+    protected $fillable = ['descripcion'];
 
     //Relaciones
 
@@ -32,7 +32,7 @@ class Oferta extends Model
         //Relacion con las solicitudes
 
         public function solicitudes() {
-            $this->belongsToMany('App\Models\User', 'solicitud', 'idOfe', 'idUsu')->get();
+            return $this->belongsToMany('App\Models\User', 'solicitud', 'idOfe', 'idUsu')->get();
         }
 
 }

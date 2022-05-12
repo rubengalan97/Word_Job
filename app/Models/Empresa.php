@@ -13,7 +13,7 @@ class Empresa extends Model
     protected $primaryKey = 'idEmp';
     public $timestamps = false;
 
-    protected $fillable = ["nombre", "imagen", "descripcion"];
+    protected $fillable = ['nombre', 'imagen', 'descripcion'];
 
     //Relaciones
 
