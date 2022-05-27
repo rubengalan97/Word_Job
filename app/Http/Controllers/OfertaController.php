@@ -18,5 +18,7 @@ class OfertaController extends Controller
         $user = User::find($req->idUsu);
         $user->belongsToMany('App\Models\Oferta', 'solicitud', 'idUsu', 'idOfe')->attach($req->idUsu, ["idOfe" =>$req->idOfe]);
 
+        return view("usuario.ofertas", ["ofertas" => Oferta::all()]);
+
     }
 }

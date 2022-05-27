@@ -8,6 +8,8 @@
 </head>
 <body>
     <button><a href="{{route('usuario.perfil', ["idUsu" => Auth::user()->idUsu])}}">Mi perfil</a></button>
+    <button><a href="{{route('usuario.ofertas')}}">Ofertas</a></button>
+    
     <form action="{{route('usuario.guardarPerfil', ["idUsu" => Auth::user()->idUsu])}}" method="post">
         @csrf
         <label for="imagen">Imagen</label><br>

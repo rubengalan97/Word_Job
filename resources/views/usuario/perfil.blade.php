@@ -8,6 +8,9 @@
 </head>
 <body>
     <button><a href="{{route('usuario.editarPerfil', ["idUsu" => Auth::user()->idUsu])}}">Editar Perfil</a></button>
+    <button><a href="{{route('usuario.borrarPerfil', ["idUsu" => Auth::user()->idUsu])}}">Borrar Perfil</a></button>
+    <button><a href="{{route('usuario.ofertas')}}">Ofertas</a></button>
+
     <form>
         <label for="email">Email</label><br>
         <input type="email" name="email" id="email" value="{{$usuario->email}}" disabled><br><br>

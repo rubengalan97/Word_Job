@@ -8,7 +8,8 @@
 </head>
 <body>
 
-    <a href="{{route('usuario.perfil', ["idUsu" => Auth::user()->idUsu])}}">Perfil</a>
+    <button><a href="{{route('usuario.perfil', ["idUsu" => Auth::user()->idUsu])}}">Perfil</a></button>
+    <button><a href="{{route('usuario.misSolicitudes', ["idUsu" => Auth::user()->idUsu])}}">Mis solicitudes</a></button>
 
     <table>
         <thead>
@@ -21,13 +22,13 @@
             <tr>
                 <td> 
                     @foreach ($oferta->empresas() as $item)
-                    {{$item->nombre}}
+                        {{$item->nombre}}
                    @endforeach
                 </td>
                 <td>{{$oferta->descripcion}}</td>
                 <td>
                     @foreach ($oferta->ciudades() as $item)
-                     {{$item->ciudad}}
+                        {{$item->ciudad}}
                     @endforeach
                 </td>
                 <td><button><a href="{{route('usuario.aceptarOferta', ["idUsu" => Auth::user()->idUsu, "idOfe" => $oferta->idOfe])}}">Aceptar Oferta</a></button></td>
