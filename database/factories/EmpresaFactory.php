@@ -22,6 +22,7 @@ class EmpresaFactory extends Factory
             'nombre'        => $this->faker->name(),
             'imagen'        => null,
             'descripcion'   => null,
+            'idUsu'         => $this->faker->numberBetween(1, 10),
         ];
     }
 }

@@ -18,6 +18,15 @@ class CreateEmpresaTable extends Migration
             $table->string('nombre', 45);
             $table->string('imagen', 150)->nullable();
             $table->string('descripcion', 255)->nullable();
+            $table->unsignedInteger('idUsu');
+        });
+
+        Schema::table('empresa', function (Blueprint $table) {
+
+            $table->foreign('idUsu')->references('idUsu')
+                                    ->on('users')
+                                    ->onDelete('cascade');
+
         });
     }
 
