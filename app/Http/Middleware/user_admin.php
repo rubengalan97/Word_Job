@@ -22,7 +22,15 @@ class user_admin
             return $next($request);
         }
 
-        return route('login');
+        if (Auth::user()->rol == "empresa") {
+            return redirect()->route('empresa.solicitudes');
+        }
+
+        if (Auth::user()->rol == "usuario") {
+            return redirect()->route('usuario.ofertas');
+        }
+
+        return redirect()->route('login');
 
     }
 }

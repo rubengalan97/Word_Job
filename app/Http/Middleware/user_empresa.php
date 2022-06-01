@@ -18,9 +18,17 @@ class user_empresa
     public function handle(Request $request, Closure $next)
     {
         if (Auth::user()->rol == "empresa") {
-            return $next($request); 
+            return $next($request);
         }
 
-        return route('login');
+        if (Auth::user()->rol == "admin") {
+            return redirect()->route('admin.gestion');
+        }
+
+        if (Auth::user()->rol == "usuario") {
+            return redirect()->route('usuario.ofertas');
+        }
+
+        return redirect()->route('login');
     }
 }

@@ -19,7 +19,18 @@ class user_usuario
     {
         if (Auth::user()->rol == "usuario") {
             return $next($request);
-        } 
-        return route('login');
+        } else {
+            return redirect()->route('logout');
+        }
+
+        if (Auth::user()->rol == "empresa") {
+            return redirect()->route('empresa.solicitudes');
+        }
+
+        if (Auth::user()->rol == "admin") {
+            return redirect()->route('admin.gestion');
+        }
+
+        return redirect()->route('login');
     }
 }
