@@ -20,9 +20,12 @@
         <label for="descripcion">Descripcion</label><br><br>
         <input type="text" name="descripcion" id="descripcion" value="{{$usuario->descripcion}}"><br><br>
         <label for="rol">Rol</label><br><br>
-        <input type="text" name="rol" id="rol" value="{{$usuario->rol}}"><br><br>
+        <select name="rol" id="rol">
+            <option value="usuario">Usuario</option>
+            <option value="empresa">Empresa</option>
+            <option value="admin">Admin</option>
+        </select><br><br>
         <input type="submit" value="Editar">
-
     </form>
     
 </body>

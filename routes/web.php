@@ -32,6 +32,7 @@ Route::group(["prefix" => "usuario", "as" => "usuario.", 'middleware' => 'auth']
     Route::get('/editarPerfil/{idUsu}', [UsuarioController::class, "editarPerfil"])->name("editarPerfil");
     Route::get('/borrarPerfil/{idUsu}', [UsuarioController::class, "borrarPerfil"])->name("borrarPerfil");
     Route::get('/borrarSolicitud', [UsuarioController::class, "borrarSolicitud"])->name("borrarSolicitud");
+    
     Route::post('/guardarPerfil/{idUsu}', [UsuarioController::class, "guardarPerfil"])->name("guardarPerfil");
 });
 
@@ -40,20 +41,29 @@ Route::group(["prefix" => "usuario", "as" => "usuario.", 'middleware' => 'auth']
 Route::group(["prefix" => "admin", "as" => "admin."], function() {
 
     //Rutas
-    Route::get('/empresas', [EmpresaController::class, "empresas"])->name("empresas");
-    Route::get('/ofertas', [OfertController::class, "ofertas"])->name("ofertas");
+    Route::get('/gestion', [UsuarioController::class, "gestion"])->name("gestion");
     Route::get('/solicitudes', [solicitudesController::class, "solicitudes"])->name("solicitudes");
-    Route::get('/usuarios', [UsuarioController::class, "usuarios"])->name("usuarios");
+
+    //Acciones de admin sobre ofertas
+    Route::get('/ofertas', [OfertaController::class, "ofertasAdmin"])->name("ofertas");
+    Route::get('/editarOferta/{oferta}', [OfertaController::class, "editarOferta"])->name("editarOferta");
+    Route::get('/borrarOferta/{oferta}', [OfertaController::class, "borrarOferta"])->name("borrarOferta");
+
+    Route::post('/editandoOferta', [OfertaController::class, "editandoOferta"])->name("editandoOferta");
 
     //Acciones de admin sobre empresas
+    Route::get('/empresas', [EmpresaController::class, "empresas"])->name("empresas");
     Route::get('/editarEmpresa/{empresa}', [EmpresaController::class, "editarEmpresa"])->name("editarEmpresa");
-    Route::post('/editandoEmpresa', [EmpresaController::class, "editandoEmpresa"])->name("editandoEmpresa");
     Route::get('/borrarEmpresa/{empresa}', [EmpresaController::class, "borrarEmpresa"])->name("borrarEmpresa");
 
+    Route::post('/editandoEmpresa', [EmpresaController::class, "editandoEmpresa"])->name("editandoEmpresa");
+
     //Acciones de admin sobre usuarios
+    Route::get('/usuarios', [UsuarioController::class, "usuarios"])->name("usuarios");
     Route::get('/editarUsuario/{usuario}', [UsuarioController::class, "editarUsuario"])->name("editarUsuario");
-    Route::post('/editandoUsuario', [UsuarioController::class, "editandoUsuario"])->name("editandoUsuario");
     Route::get('/borrarUsuario/{usuario}', [UsuarioController::class, "borrarUsuario"])->name("borrarUsuario");
+
+    Route::post('/editandoUsuario', [UsuarioController::class, "editandoUsuario"])->name("editandoUsuario");
 
 });
 

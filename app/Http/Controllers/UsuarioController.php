@@ -52,8 +52,11 @@ class UsuarioController extends Controller
     }
 
     public function editarUsuario(Request $req, User $usuario) {
-
         return view("admin.editarUsuario", ["usuario" => $usuario]);
+    }
+
+    public function gestion(Request $req) {
+        return view("admin.gestion");
     }
 
     public function editandoUsuario(Request $req) {
@@ -72,7 +75,7 @@ class UsuarioController extends Controller
 
     public function borrarUsuario(Request $req, User $usuario) {
         $usuario->delete();
-        return view("admin.usuarios", ["usuario" => User::all()]);
+        return view("admin.usuarios", ["usuarios" => User::all()]);
     }
 
 

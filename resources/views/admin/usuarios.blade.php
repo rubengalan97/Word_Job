@@ -8,6 +8,8 @@
 </head>
 <body>
 
+    <button><a href="{{route('admin.gestion')}}">Volver a Gestiones</a></button>
+
     <table>
         <thead>
             <th>id Usuario</th>
