@@ -24,7 +24,7 @@ Route::get('/', function () {
 
 // Rutas para el rol de usuario
 
-Route::group(["prefix" => "usuario", "as" => "usuario.", 'middleware' => 'auth'], function() {
+Route::group(["prefix" => "usuario", "as" => "usuario.", 'middleware' => ['auth', 'user_usuario']], function() {
     Route::get('/ofertas', [OfertaController::class, "ofertas"])->name("ofertas");
     Route::get('/misSolicitudes/{idUsu}', [UsuarioController::class, "misSolicitudes"])->name("misSolicitudes");
     Route::get('/perfil/{idUsu}', [UsuarioController::class, "perfil"])->name("perfil");
@@ -32,13 +32,13 @@ Route::group(["prefix" => "usuario", "as" => "usuario.", 'middleware' => 'auth']
     Route::get('/editarPerfil/{idUsu}', [UsuarioController::class, "editarPerfil"])->name("editarPerfil");
     Route::get('/borrarPerfil/{idUsu}', [UsuarioController::class, "borrarPerfil"])->name("borrarPerfil");
     Route::get('/borrarSolicitud', [UsuarioController::class, "borrarSolicitud"])->name("borrarSolicitud");
-    
+
     Route::post('/guardarPerfil/{idUsu}', [UsuarioController::class, "guardarPerfil"])->name("guardarPerfil");
 });
 
 // Rutas para el rol de admin
 
-Route::group(["prefix" => "admin", "as" => "admin."], function() {
+Route::group(["prefix" => "admin", "as" => "admin.", 'middleware' => ['auth', 'user_admin']], function() {
 
     //Rutas
     Route::get('/gestion', [UsuarioController::class, "gestion"])->name("gestion");
@@ -69,7 +69,7 @@ Route::group(["prefix" => "admin", "as" => "admin."], function() {
 
 // Rutas para el rol de empresa
 
-Route::group(["prefix" => "empresa", "as" => "empresa."], function() {
+Route::group(["prefix" => "empresa", "as" => "empresa.", 'middleware' => ['auth', 'user_admin']], function() {
     Route::get('/misOfertas', [OfertaController::class, "misOfertas"])->name("misOfertas");
     Route::get('/perfil', [EmpresaController::class, "perfil"])->name("perfil");
     Route::get('/solicitudes', [OfertaController::class, "empresas"])->name("empresas");

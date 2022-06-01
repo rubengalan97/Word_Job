@@ -8,11 +8,14 @@
 </head>
 <body>
 
+    <?php
+        var_dump(Auth::user());
+    ?>
+
     <button><a href="{{route('usuario.ofertas')}}">Ofertas</a></button>
     <button><a href="{{route('usuario.perfil', ["idUsu" => Auth::user()->idUsu])}}">Perfil</a></button>
+    <button><a href="{{route("logout")}}">Log out</a></button>
 
-
- 
     @if ($solicitudes->count() == 0)
         <h3>No tienes solicitudes</h3>
     @else
