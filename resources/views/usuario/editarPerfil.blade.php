@@ -14,7 +14,7 @@
     <form action="{{route('usuario.guardarPerfil', ["idUsu" => Auth::user()->idUsu])}}" method="post">
         @csrf
         <label for="imagen">Imagen</label><br>
-        <input type="imagen" name="imagen" id="imagen" value="{{$usuario->imagen}}" ><br><br>
+        <input type="file" name="imagen" id="imagen" value="{{$usuario->imagen}}" ><br><br>
         <label for="ultimos_estudios">Ultimos Estudios</label><br>
         <input type="ultimos_estudios" name="ultimos_estudios" id="ultimos_estudios" value="{{$usuario->ultimos_estudios}}" ><br><br>
         <label for="descripcion">Descripcion</label><br>

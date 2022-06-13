@@ -12,6 +12,8 @@
     <button><a href="{{route('usuario.borrarPerfil', ["idUsu" => Auth::user()->idUsu])}}">Borrar Perfil</a></button>
     <button><a href="{{route('usuario.ofertas')}}">Ofertas</a></button>
 
+    <img src="{{ asset('img/'.$usuario->imagen.'') }}" alt="Imagen usuario">
+
     <form>
         <label for="email">Email</label><br>
         <input type="email" name="email" id="email" value="{{$usuario->email}}" disabled><br><br>

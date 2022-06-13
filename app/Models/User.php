@@ -26,4 +26,9 @@ class User extends Authenticatable
         public function solicitudes() {
             return $this->belongsToMany('App\Models\Oferta', 'solicitud', 'idUsu', 'idOfe')->get();
         }
+
+        public function empresa() {
+            return $this->hasOne('App\Models\Empresa', 'idUsu', 'idUsu')->get();
+        }
+
     }

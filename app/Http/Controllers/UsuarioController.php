@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Oferta;
 use App\Models\User;
@@ -45,6 +46,12 @@ class UsuarioController extends Controller
         return view("usuario.misSolicitudes", ["solicitudes" => $user->solicitudes()]);
     }
 
+    public function usuario(Request $req) {
+        $user = User::find($req->idUsu);
+        $oferta = Oferta::find($req->idOfe);
+        return view("empresa.usuario", ["usuario" => $user, "oferta" => $oferta]);
+    }
+
     //Acciones relacionadas con el admin
 
     public function usuarios() {
@@ -64,7 +71,17 @@ class UsuarioController extends Controller
         $usuario = User::find($req->idUsu);
 
         $usuario->email = $req->email;
-        $usuario->imagen = $req->imagen;
+
+        if ($request->hasFile('imagen')) {
+
+            $request->validate([
+                'imagen' => 'mimes:jpeg,bmp,png' // Only allow .jpg, .bmp and .png file types.
+            ]);
+
+            $request->imagen->storeAs('img/', $request->image, 'public');
+
+            $usuario->imagen = $req->imagen;
+        }
         $usuario->descripcion = $req->descripcion;
         $usuario->ultimos_estudios = $req->ultimos_estudios;
         $usuario->rol = $req->rol;

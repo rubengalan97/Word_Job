@@ -17,18 +17,17 @@ class user_usuario
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->rol == "usuario") {
-            return $next($request);
-        } else {
-            return redirect()->route('logout');
-        }
 
         if (Auth::user()->rol == "empresa") {
-            return redirect()->route('empresa.solicitudes');
+            return redirect()->route('empresa.misOfertas');
         }
 
         if (Auth::user()->rol == "admin") {
             return redirect()->route('admin.gestion');
+        }
+
+        if (Auth::user()->rol == "usuario") {
+            return $next($request);
         }
 
         return redirect()->route('login');

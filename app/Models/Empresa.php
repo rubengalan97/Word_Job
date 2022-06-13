@@ -20,7 +20,13 @@ class Empresa extends Model
         //Relaciones con las ofertas
 
         public function ofertas() {
-            return $this->hasMany('App\Models\Oferta', 'idEmp', 'idOfe')->get();
+            return $this->hasMany('App\Models\Oferta', 'idEmp', 'idEmp')->get();
+        }
+
+        //Relaciones con los usuarios
+
+        public function usuario() {
+            return $this->hasOne('App\Models\User', 'idUsu', 'idUsu')->get();
         }
 
 }

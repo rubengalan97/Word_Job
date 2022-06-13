@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OfertaController;
 use App\Http\Controllers\UsuarioController;
@@ -69,15 +70,27 @@ Route::group(["prefix" => "admin", "as" => "admin.", 'middleware' => ['auth', 'u
 
 // Rutas para el rol de empresa
 
-Route::group(["prefix" => "empresa", "as" => "empresa.", 'middleware' => ['auth', 'user_admin']], function() {
-    Route::get('/misOfertas', [OfertaController::class, "misOfertas"])->name("misOfertas");
+Route::group(["prefix" => "empresa", "as" => "empresa.", 'middleware' => ['auth', 'user_empresa']], function() {
+    
     Route::get('/perfil', [EmpresaController::class, "perfil"])->name("perfil");
-    Route::get('/solicitudes', [OfertaController::class, "empresas"])->name("empresas");
     Route::get('/usuario', [UsuarioController::class, "usuario"])->name("usuario");
+
+    //Acciones para las ofertas
+    Route::get('/borrarOfertaEmpresa/{oferta}', [OfertaController::class, "borrarOfertaEmpresa"])->name("borrarOfertaEmpresa");
+    Route::get('/misOfertas', [OfertaController::class, "misOfertas"])->name("misOfertas");
+    Route::get('/crearOferta', [OfertaController::class, "crearOferta"])->name("crearOferta");
+    Route::post('/creandoOferta', [OfertaController::class, "creandoOferta"])->name("creandoOferta");
+
+    //Acciones para las solicitudes
+    Route::get('/solicitudesEmpresa', [OfertaController::class, "solicitudesEmpresa"])->name("solicitudesEmpresa");
+    Route::get('/cambiarEstado', [OfertaController::class, "cambiarEstado"])->name("cambiarEstado");
+
 });
 
+Route::get('/out',[AuthenticatedSessionController::class, "destroy"])->name('out');
+
 Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+    return redirect()->route('usuario.ofertas');
+})->middleware(['auth', 'user_usuario']);
 
 require __DIR__.'/auth.php';

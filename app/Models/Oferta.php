@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Oferta extends Model
 {
@@ -33,6 +34,11 @@ class Oferta extends Model
 
         public function solicitudes() {
             return $this->belongsToMany('App\Models\User', 'solicitud', 'idOfe', 'idUsu')->get();
+        }
+
+        public function estado($idOfe, $idUsu){
+            // var_dump(DB::table('solicitud')->select('estado')->where('idOfe', $idOfe)->where('idUsu', $idUsu)->get()[0]);exit();
+            return DB::table('solicitud')->select('estado')->where('idOfe', $idOfe)->where('idUsu', $idUsu)->get()[0]; 
         }
 
 }

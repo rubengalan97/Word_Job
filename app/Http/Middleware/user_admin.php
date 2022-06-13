@@ -23,7 +23,7 @@ class user_admin
         }
 
         if (Auth::user()->rol == "empresa") {
-            return redirect()->route('empresa.solicitudes');
+            return redirect()->route('empresa.misOfertas');
         }
 
         if (Auth::user()->rol == "usuario") {

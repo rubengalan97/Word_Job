@@ -23,7 +23,7 @@ class UserFactory extends Factory
             'idUsu'             => null,
             'email'             => $this->faker->email(),
             'password'          => Hash::make('12345'),
-            'imagen'            => null,
+            'imagen'            => 'defaultUser.png',
             'ultimos_estudios'  => $this->faker->text($maxNbChars = 45),
             'descripcion'       => null,
         ];
