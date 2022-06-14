@@ -1,0 +1,25 @@
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+  }
+  thead {
+    background-color: black;
+    color: white;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  #titulo {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  #tabla {
+    overflow-x: auto;
+  }
+  
+  tr:nth-child(even){background-color: #f2f2f2}

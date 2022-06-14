@@ -54,7 +54,7 @@ Route::group(["prefix" => "admin", "as" => "admin.", 'middleware' => ['auth', 'u
 
     //Acciones de admin sobre empresas
     Route::get('/empresas', [EmpresaController::class, "empresas"])->name("empresas");
-    Route::get('/editarEmpresa/{empresa}', [EmpresaController::class, "editarEmpresa"])->name("editarEmpresa");
+    Route::get('/editarEmpresaAdmin/{empresa}', [EmpresaController::class, "editarEmpresaAdmin"])->name("editarEmpresaAdmin");
     Route::get('/borrarEmpresa/{empresa}', [EmpresaController::class, "borrarEmpresa"])->name("borrarEmpresa");
 
     Route::post('/editandoEmpresa', [EmpresaController::class, "editandoEmpresa"])->name("editandoEmpresa");
@@ -73,6 +73,9 @@ Route::group(["prefix" => "admin", "as" => "admin.", 'middleware' => ['auth', 'u
 Route::group(["prefix" => "empresa", "as" => "empresa.", 'middleware' => ['auth', 'user_empresa']], function() {
     
     Route::get('/perfil', [EmpresaController::class, "perfil"])->name("perfil");
+    Route::get('/editarEmpresa', [EmpresaController::class, "editarEmpresa"])->name("editarEmpresa");
+    Route::post('/editandoEmpresaUsuario', [EmpresaController::class, "editandoEmpresaUsuario"])->name("editandoEmpresaUsuario");
+    Route::get('/borrarPerfil', [EmpresaController::class, "borrarPerfil"])->name("borrarPerfil");
     Route::get('/usuario', [UsuarioController::class, "usuario"])->name("usuario");
 
     //Acciones para las ofertas

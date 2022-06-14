@@ -23,7 +23,17 @@ class UsuarioController extends Controller
     public function guardarPerfil(Request $req, $idUsu) {
 
         $user = User::find($idUsu);
-        $user->imagen = $req->imagen;
+
+        if ($req->hasFile('imagen')) {
+
+            $file  = $req->file('imagen');
+            $destinationPath = '../img/';
+            $fileName = time().'-'.$file->getClientOriginalName();
+            $uplopadSuccess = $req->file('imagen')->move($destinationPath, $fileName);
+
+            $user->imagen = $destinationPath.$fileName ?? $user->imagen;
+        }
+
         $user->ultimos_estudios = $req->ultimos_estudios;
         $user->descripcion = $req->descripcion;
         $user->save();
@@ -72,13 +82,13 @@ class UsuarioController extends Controller
 
         $usuario->email = $req->email;
 
-        if ($request->hasFile('imagen')) {
+        if ($req->hasFile('imagen')) {
 
-            $request->validate([
+            $req->validate([
                 'imagen' => 'mimes:jpeg,bmp,png' // Only allow .jpg, .bmp and .png file types.
             ]);
 
-            $request->imagen->storeAs('img/', $request->image, 'public');
+            $req->imagen->storeAs('img/', $req->image, 'public');
 
             $usuario->imagen = $req->imagen;
         }

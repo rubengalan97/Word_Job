@@ -18,7 +18,6 @@ class OfertaController extends Controller
     public function misOfertas(Request $req) {
 
         $usuario = User::find(Auth::user()->idUsu);
-
         $empresa = Empresa::find($usuario->empresa()[0]->idEmp);
 
         return view("empresa.misOfertas", ["ofertas" => $empresa->ofertas()]);
