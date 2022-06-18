@@ -25,7 +25,8 @@
   label {
     padding: 12px 12px 12px 0;
     display: inline-block;
-    color: white;
+    color: black;
+    font-family: 'Martel', serif;
     font-size: 1.25em;
   }
   
@@ -36,7 +37,7 @@
   }
 
   input[type=submit] {
-    background-color: rgb(37, 170, 4);
+    background-color: #4C4C6D;
     color: white;
     margin-top: 20px;
     padding: 12px 20px;
@@ -46,15 +47,12 @@
     float: right;
   }
   
-  input[type=submit]:hover {
-    background-color: #45a049;
-  }
-  
   .container {
     border-radius: 5px;
-    background-color: #5e8788;
+    background-color: #FFE194;
     padding: 20px;
     margin: 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   }
   
   .col-25 {
@@ -69,14 +67,12 @@
     margin-top: 6px;
   }
   
-  /* Clear floats after the columns */
   .row:after {
     content: "";
     display: table;
     clear: both;
   }
   
-  /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
   @media screen and (max-width: 600px) {
     .col-25, .col-75, input[type=submit] {
       width: 100%;

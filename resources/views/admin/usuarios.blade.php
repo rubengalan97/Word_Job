@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/adminTable.css') }}" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/nav.css') }}" >
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/botones.css') }}" >
     <script src="{{ asset('js/nav.js') }}"></script>
     <title>Gestion Usuarios</title>
 </head>
@@ -37,6 +38,7 @@
                 <th>Descripcion</th>
                 <th>Ultimos Estudios</th>
                 <th>Rol</th>
+                <th colspan="2">Acciones</th>
             </thead>
             <tbody>
                 @foreach ($usuarios as $usuario)
@@ -47,8 +49,8 @@
                     <td>{{$usuario->descripcion}}</td>
                     <td>{{$usuario->ultimos_estudios}}</td>
                     <td>{{$usuario->rol}}</td>
-                    <td><button><a href="{{route('admin.editarUsuario', $usuario)}}">Editar</a></button></td>
-                    <td><button><a href="{{route('admin.borrarUsuario', $usuario)}}">Borrar</a></button></td>
+                    <td><a class="link" href="{{route('admin.editarUsuario', $usuario)}}"><button class="editar">Editar</button></a></td>
+                    <td><a class="link" href="{{route('admin.borrarUsuario', $usuario)}}"><button class="borrar">Borrar</button></a></td>
                 </tr>
                 @endforeach
             </tbody>

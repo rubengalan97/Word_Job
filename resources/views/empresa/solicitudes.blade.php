@@ -7,6 +7,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/nav.css') }}" >
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/cards.css') }}" >
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/botones.css') }}" >
     <script src="{{ asset('js/nav.js') }}"></script>
     <title>Solicitudes de los usuarios</title>
 </head>
@@ -23,32 +25,22 @@
         </a>
     </div>
 
-    <table>
-        <thead>
-            <th>Usuario</th>
-            <th>idOfe</th>
-            <th>Estado</th>
-        </thead>
-        <tbody>
-            @foreach ($solicitudes as $solicitud)
-
+    <div class="cards">
+        @foreach ($solicitudes as $solicitud)
+            <div class="card">
                 @foreach ($solicitud->solicitudes() as $item)
-
-                    <tr>
-                        <td>{{$item->email}}</td>
-                        <td>{{$item->pivot['idOfe']}}</td>
-                        <td>{{$solicitud->estado($item->pivot['idOfe'], $item->pivot['idUsu'])->estado}}</td>
-                        {{-- <td><button><a href="{{route('empresa.borrarOfertaEmpresa', $solicitud)}}">Borrar</a></button></td> --}}
-                        <td><button><a href="{{route('empresa.usuario', ['idUsu' => $item->pivot['idUsu'], 'idOfe' => $item->pivot['idOfe']])}}">Consultar Usuario</a></button></td>
-                        <td><button><a href="{{route('empresa.cambiarEstado', ["estado" => 'Aceptada', 'idUsu' => $item->pivot['idUsu'], 'idOfe' => $item->pivot['idOfe']] )}}">Aceptar solicitud</a></button></td>
-                        <td><button><a href="{{route('empresa.cambiarEstado', ["estado" => 'Denegada', 'idUsu' => $item->pivot['idUsu'], 'idOfe' => $item->pivot['idOfe']] )}}">Denegar solicitud</a></button></td>
-                    </tr>
+                    <h2 class="titulos">
+                        Email: {{$item->email}}
+                    </h2>
+                    <h3 class="titulos">Oferta:</h3>
+                    <p class="descripcion">{{$item->pivot['idOfe']}}</p>
+                    <a href="{{route('empresa.usuario', ['idUsu' => $item->pivot['idUsu'], 'idOfe' => $item->pivot['idOfe']])}}"><button class="consultar">Consultar Usuario</button></a>
+                    <a href="{{route('empresa.cambiarEstado', ["estado" => 'Aceptada', 'idUsu' => $item->pivot['idUsu'], 'idOfe' => $item->pivot['idOfe']] )}}"><button class="editar">Aceptar solicitud</button></a>
+                    <a href="{{route('empresa.cambiarEstado', ["estado" => 'Denegada', 'idUsu' => $item->pivot['idUsu'], 'idOfe' => $item->pivot['idOfe']] )}}"><button class="borrar">Denegar solicitud</button></a>
                 @endforeach
-
-            @endforeach
-           
-        </tbody>
-    </table>
+            </div>
+        @endforeach
+    </div>
     
 </body>
 </html>

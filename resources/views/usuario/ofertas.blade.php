@@ -7,6 +7,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/nav.css') }}" >
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/cards.css') }}" >
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/botones.css') }}" >
     <script src="{{ asset('js/nav.js') }}"></script>
     <title>Ofertas</title>
 </head>
@@ -22,31 +24,26 @@
         </a>
     </div>
 
-    <table>
-        <thead>
-            <th>Nombre Empresa</th>
-            <th>Descripcion</th>
-            <th>Ciudad</th>
-        </thead>
-        <tbody>
-           @foreach ($ofertas as $oferta)
-            <tr>
-                <td> 
-                    @foreach ($oferta->empresas() as $item)
-                        {{$item->nombre}}
-                   @endforeach
-                </td>
-                <td>{{$oferta->descripcion}}</td>
-                <td>
-                    @foreach ($oferta->ciudades() as $item)
-                        {{$item->ciudad}}
-                    @endforeach
-                </td>
-                <td><button><a href="{{route('usuario.aceptarOferta', ["idUsu" => Auth::user()->idUsu, "idOfe" => $oferta->idOfe])}}">Aceptar Oferta</a></button></td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+    <div class="cards">
+        @foreach ($ofertas as $oferta)
+        <div class="card">
+            <h2 class="titulos">
+                @foreach ($oferta->empresas() as $item)
+                    Empresa: {{$item->nombre}}
+                @endforeach
+            </h2>
+            <h3 class="titulos">Descripcion:</h3>
+            <p class="descripcion">{{$oferta->descripcion}}</p>
+            <h4 class="titulos">Ciudad:</h4>
+            <h4 class="titulos">
+                @foreach ($oferta->ciudades() as $item)
+                    {{$item->ciudad}}
+                @endforeach
+            </h4>
+            <a href="{{route('usuario.aceptarOferta', ["idUsu" => Auth::user()->idUsu, "idOfe" => $oferta->idOfe])}}"><button class="editar">Aceptar oferta</button></a>
+        </div>
+        @endforeach
+    </div>
 
 </body>
 </html>

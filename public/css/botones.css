@@ -1,0 +1,114 @@
+.editar{
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+  padding: 0.7em 2em;
+  border: 3px solid #4C4C6D;
+  border-radius: 2px;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+  color: #4C4C6D;
+  text-decoration: none;
+  transition: 0.3s ease all;
+  z-index: 1;
+ }
+ 
+ .editar:before {
+  transition: 0.5s all ease;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  opacity: 0;
+  content: '';
+  background-color: #4C4C6D;
+  z-index: -1;
+ }
+ 
+ button:hover, button:focus, .link:hover, .link:focus {
+  color: white;
+ }
+ 
+ button:hover:before, button:focus:before {
+  transition: 0.5s all ease;
+  left: 0;
+  right: 0;
+  opacity: 1;
+ }
+ 
+ .editar:active {
+  transform: scale(0.9);
+ }
+
+/* Borrar */
+.borrar{
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+  padding: 0.7em 2em;
+  border: 3px solid #ff004c;
+  border-radius: 2px;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+  color: #ff002b;
+  text-decoration: none;
+  transition: 0.3s ease all;
+  z-index: 1;
+ }
+ 
+ .borrar:before {
+  transition: 0.5s all ease;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  opacity: 0;
+  content: '';
+  background-color: #ff002b;
+  z-index: -1;
+ }
+ /* Consultar */
+
+ .consultar{
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+  padding: 0.7em 2em;
+  border: 3px solid #B8DFD8;
+  border-radius: 2px;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+  color: black;
+  text-decoration: none;
+  transition: 0.3s ease all;
+  z-index: 1;
+ }
+ 
+ .consultar:before {
+  transition: 0.5s all ease;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  opacity: 0;
+  content: '';
+  background-color: #B8DFD8;
+  z-index: -1;
+ }
+
+ .link {
+  text-decoration: none;
+  color: black;
+ }

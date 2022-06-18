@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Martel&display=swap');
+
 table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -5,13 +8,22 @@ table {
     border: 1px solid #ddd;
   }
   thead {
-    background-color: black;
+    background-color: #4C4C6D;
     color: white;
   }
   
   th, td {
     text-align: left;
     padding: 8px;
+  }
+  th {
+    text-align: center;
+  }
+  th, #titulo {
+    font-family: 'Martel', serif;
+  }
+  td {
+    font-family: 'Lato', sans-serif;
   }
   #titulo {
     text-align: center;
