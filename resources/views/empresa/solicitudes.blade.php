@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/cards.css') }}" >
     <link rel="stylesheet" type="text/css" href="{{ asset('css/botones.css') }}" >
     <script src="{{ asset('js/nav.js') }}"></script>
-    <title>{{__('messages.request')}}</title>
+    <title>{{__('messages.requests')}}</title>
 </head>
 <body>
 
