@@ -4,10 +4,14 @@
             <a href="#">
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
             </a>
+            <div class="dropdown">
+                <button class="dropbtn">{{ __('messages.language') }}</button>
+                <div class="dropdown-content">
+                    <a href="{{ route('locale', ["locale" => "es"]) }}"> {{ __('messages.es') }}</a>
+                    <a href="{{ route('locale',  ["locale" => "en"]) }}"> {{ __('messages.en') }}</a>
+                </div>
+              </div>
         </x-slot>
-
-        <a href="{{ route('locale', ["locale" => "es"]) }}"> {{ __('messages.es') }}</a>
-        <a href="{{ route('locale',  ["locale" => "en"]) }}"> {{ __('messages.en') }}</a>
 
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />

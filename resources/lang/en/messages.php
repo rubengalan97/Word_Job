@@ -45,5 +45,6 @@ return [
     'check_user' => 'Check User',
     'es' => 'Spanish',
     'en' => 'English',
+    'language' => 'Language',
 
 ];
