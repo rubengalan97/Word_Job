@@ -39,16 +39,6 @@ class EmpresaController extends Controller
 
         $usuario = User::find($req->idUsu);
         $usuario->email = $req->email;
-
-        if ($req->hasFile('imagen')) {
-
-            $file  = $req->file('imagen');
-            $destinationPath = '../img/';
-            $fileName = time().'-'.$file->getClientOriginalName();
-            $uplopadSuccess = $req->file('imagen')->move($destinationPath, $fileName);
-
-            $usuario->imagen = $destinationPath.$fileName ?? $usuario->imagen;
-        }
         $usuario->save();
 
         return redirect()->route("empresa.perfil");

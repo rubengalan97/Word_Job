@@ -82,16 +82,6 @@ class UsuarioController extends Controller
 
         $usuario->email = $req->email;
 
-        if ($req->hasFile('imagen')) {
-
-            $req->validate([
-                'imagen' => 'mimes:jpeg,bmp,png' // Only allow .jpg, .bmp and .png file types.
-            ]);
-
-            $req->imagen->storeAs('img/', $req->image, 'public');
-
-            $usuario->imagen = $req->imagen;
-        }
         $usuario->descripcion = $req->descripcion;
         $usuario->ultimos_estudios = $req->ultimos_estudios;
         $usuario->rol = $req->rol;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,12 +14,12 @@
 <body>
 
     <div class="topnav" id="myTopnav">
-        <a href="#" class="active">Editar Usuario</a>
-        <a href="{{route('admin.gestion')}}">Gestiones</a>
-        <a href="{{route('admin.empresas')}}">Gestionar Empresas</a>
-        <a href="{{route('admin.usuarios')}}">Gestionar Usuarios</a>
-        <a href="{{route('admin.ofertas')}}">Gestionar Ofertas</a>
-        <a href="{{route("out")}}">Log out</a>
+        <a href="#" class="active">{{__('messages.edit_user')}}</a>
+        <a href="{{route('admin.gestion')}}">{{__('messages.manages')}}</a>
+        <a href="{{route('admin.empresas')}}">{{__('messages.business_manage')}}</a>
+        <a href="{{route('admin.usuarios')}}">{{__('messages.user_manage')}}</a>
+        <a href="{{route('admin.ofertas')}}">{{__('messages.offers_manage')}}</a>
+        <a href="{{route("out")}}">{{__('messages.log_out')}}</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
           <i class="fa fa-bars"></i>
         </a>
@@ -35,7 +35,7 @@
             <input type="hidden" name="idUsu" value="{{$usuario->idUsu}}">
             <div class="row">
                 <div class="col-25">
-                  <label for="email">Email</label>
+                  <label for="email">{{__('messages.email')}}</label>
                 </div>
                 <div class="col-75">
                   <input type="email" name="email" id="email" value="{{$usuario->email}}" >
@@ -43,7 +43,7 @@
               </div>
               <div class="row">
                 <div class="col-25">
-                  <label for="imagen">Imagen</label>
+                  <label for="imagen">{{__('messages.img')}}</label>
                 </div>
                 <div class="col-75">
                   <input type="file" name="imagen" id="imagen" value="{{$usuario->imagen}}" >
@@ -51,13 +51,13 @@
               </div>
               <div class="row">
                 <div class="col-25">
-                  <label for="ultimos_estudios">Ultimos Estudios</label>
+                  <label for="ultimos_estudios">{{__('messages.studies')}}</label>
                 </div>
                 <div class="col-75">
                   <textarea id="ultimos_estudios" name="ultimos_estudios" style="height:200px" >{{$usuario->ultimos_estudios}}</textarea>
                 </div>
                 <div class="col-25">
-                  <label for="descripcion">Descripcion</label>
+                  <label for="descripcion">{{__('messages.description')}}</label>
                 </div>
                 <div class="col-75">
                 <textarea id="descripcion" name="descripcion" style="height:200px" >{{$usuario->descripcion}}</textarea>
@@ -74,7 +74,7 @@
                 </div>
                 </div>
                 <div class="row">
-                    <input type="submit" value="Editar">
+                    <input type="submit" value="{{__('messages.edit')}}">
                   </div>
               </div>
         </form>

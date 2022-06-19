@@ -37,7 +37,7 @@ class Oferta extends Model
         }
 
         public function estado($idOfe, $idUsu){
-            // var_dump(DB::table('solicitud')->select('estado')->where('idOfe', $idOfe)->where('idUsu', $idUsu)->get()[0]);exit();
+            // var_dump(DB::table('solicitud')->select('estado')->where('idUsu', $idUsu)->where('idOfe', $idOfe)->get()[0]);exit();    
             return DB::table('solicitud')->select('estado')->where('idOfe', $idOfe)->where('idUsu', $idUsu)->get()[0]; 
         }
 

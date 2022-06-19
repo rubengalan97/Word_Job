@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,12 +13,12 @@
 <body>
 
     <div class="topnav" id="myTopnav">
-        <a href="#" class="active">Editar Oferta</a>
-        <a href="{{route('admin.gestion')}}">Gestiones</a>
-        <a href="{{route('admin.empresas')}}">Gestionar Empresas</a>
-        <a href="{{route('admin.usuarios')}}">Gestionar Usuarios</a>
-        <a href="{{route('admin.ofertas')}}">Gestionar Ofertas</a>
-        <a href="{{route("out")}}">Log out</a>
+        <a href="#" class="active">{{__('messages.edit_offer')}}</a>
+        <a href="{{route('admin.gestion')}}">{{__('messages.manages')}}</a>
+        <a href="{{route('admin.empresas')}}">{{__('messages.business_manage')}}</a>
+        <a href="{{route('admin.usuarios')}}">{{__('messages.user_manage')}}</a>
+        <a href="{{route('admin.ofertas')}}">{{__('messages.offers_manage')}}</a>
+        <a href="{{route("out")}}">{{__('messages.log_out')}}</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
           <i class="fa fa-bars"></i>
         </a>
@@ -34,7 +34,7 @@
             <input type="hidden" name="idOfe" value="{{$oferta->idOfe}}">
             <div class="row">
                 <div class="col-25">
-                    <label for="empresa">Selecciona Empresa</label>
+                    <label for="empresa">{{__('messages.select_business')}}</label>
                 </div>
                 <div class="col-75">
                     <select name="empresa">
@@ -50,13 +50,13 @@
               </div>
             <div class="row">
                 <div class="col-25">
-                    <label for="descripcion">Descripcion</label>
+                    <label for="descripcion">{{__('messages.description')}}</label>
                 </div>
                 <div class="col-75">
                     <textarea id="descripcion" name="descripcion" style="height:200px" >{{$oferta->descripcion}}</textarea>
                 </div>
                 <div class="col-25">
-                    <label for="ciudad">Ciudad</label>
+                    <label for="ciudad">{{__('messages.city')}}</label>
                 </div>
                 <div class="col-75">
                     <select name="ciudad">
@@ -71,7 +71,7 @@
                 </div>
             </div>
             <div class="row">
-                <input type="submit" value="Editar">
+                <input type="submit" value="{{__('messages.edit')}}">
             </div>
             </div>
         </form>

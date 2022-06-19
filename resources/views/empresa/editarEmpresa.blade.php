@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,11 +14,11 @@
 <body>
 
     <div class="topnav" id="myTopnav">
-        <a href="#" class="active">Editar Perfil</a>
-        <a href="{{route('empresa.perfil')}}">Perfil</a>
-        <a href="{{route('empresa.misOfertas')}}">Mis Ofertas</a>
-        <a href="{{route('empresa.solicitudesEmpresa')}}">Solicitudes</a>
-        <a href="{{route("out")}}">Log out</a>
+        <a href="#" class="active">{{__('messages.edit_user')}}</a>
+        <a href="{{route('empresa.perfil')}}">{{__('messages.profile')}}</a>
+        <a href="{{route('empresa.misOfertas')}}">{{__('messages.offers')}}</a>
+        <a href="{{route('empresa.solicitudesEmpresa')}}">{{__('messages.requests')}}</a>
+        <a href="{{route("out")}}">{{__('messages.log_out')}}</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
           <i class="fa fa-bars"></i>
         </a>
@@ -35,7 +35,7 @@
             <input type="hidden" name="idUsu" id="idUsu" value="{{$usuario->idUsu}}" >
             <div class="row">
                 <div class="col-25">
-                    <label for="email">Email</label>
+                    <label for="email">{{__('messages.email')}}</label>
                 </div>
                 <div class="col-75">
                     <input type="text" name="email" id="email" value="{{$usuario->email}}" >
@@ -43,15 +43,7 @@
             </div>
                 <div class="row">
                 <div class="col-25">
-                    <label for="imagen">Imagen</label>
-                </div>
-                <div class="col-75">
-                    <input type="file" name="imagen" id="imagen" value="{{$usuario->imagen}}" >
-                </div>
-                </div>
-                <div class="row">
-                <div class="col-25">
-                    <label for="imagen">Nombre Empresa</label>
+                    <label for="imagen">{{__('messages.business_name')}}</label>
                 </div>
                 <div class="col-75">
                     <input type="text" name="nombre" id="nombre" value="{{$empresa->nombre}}" >
@@ -59,14 +51,14 @@
                 </div>
                 <div class="row">
                 <div class="col-25">
-                    <label for="descripcion">Descripcion</label>
+                    <label for="descripcion">{{__('messages.description')}}</label>
                 </div>
                 <div class="col-75">
-                    <textarea id="descripcion" name="descripcion" readonly style="height:200px">{{$empresa->descripcion}}</textarea>
+                    <textarea id="descripcion" name="descripcion" style="height:200px">{{$empresa->descripcion}}</textarea>
                 </div>
                 </div>
                 <div class="row">
-                    <input type="submit" value="Editar">
+                    <input type="submit" value="{{__('messages.edit')}}">
                 </div>
         </form>
       </div>

@@ -91,6 +91,10 @@ Route::group(["prefix" => "empresa", "as" => "empresa.", 'middleware' => ['auth'
 });
 
 Route::get('/out',[AuthenticatedSessionController::class, "destroy"])->name('out');
+Route::get('locale/{locale}', function($locale) {
+   session()->put('locale', $locale);
+   return Redirect::back();
+})->name('locale');
 
 Route::get('/dashboard', function () {
     return redirect()->route('usuario.ofertas');

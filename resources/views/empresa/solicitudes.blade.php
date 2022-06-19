@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,16 +10,16 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/cards.css') }}" >
     <link rel="stylesheet" type="text/css" href="{{ asset('css/botones.css') }}" >
     <script src="{{ asset('js/nav.js') }}"></script>
-    <title>Solicitudes de los usuarios</title>
+    <title>{{__('messages.request')}}</title>
 </head>
 <body>
 
     <div class="topnav" id="myTopnav">
-        <a href="#" class="active">Solicitudes</a>
-        <a href="{{route('empresa.perfil')}}">Perfil</a>
-        <a href="{{route('empresa.misOfertas')}}">Mis Ofertas</a>
-        <a href="{{route('empresa.crearOferta', ["idUsu" => Auth::user()->idUsu])}}">Crear Oferta</a>
-        <a href="{{route("out")}}">Log out</a>
+        <a href="#" class="active">{{__('messages.requests')}}</a>
+        <a href="{{route('empresa.perfil')}}">{{__('messages.profile')}}</a>
+        <a href="{{route('empresa.misOfertas')}}">{{__('messages.offers')}}</a>
+        <a href="{{route('empresa.crearOferta', ["idUsu" => Auth::user()->idUsu])}}">{{__('messages.create_offer')}}</a>
+        <a href="{{route("out")}}">{{__('messages.log_out')}}</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
           <i class="fa fa-bars"></i>
         </a>
@@ -30,13 +30,13 @@
             <div class="card">
                 @foreach ($solicitud->solicitudes() as $item)
                     <h2 class="titulos">
-                        Email: {{$item->email}}
+                        {{__('messages.email')}}: {{$item->email}}
                     </h2>
-                    <h3 class="titulos">Oferta:</h3>
+                    <h3 class="titulos">{{__('messages.offers')}}:</h3>
                     <p class="descripcion">{{$item->pivot['idOfe']}}</p>
-                    <a href="{{route('empresa.usuario', ['idUsu' => $item->pivot['idUsu'], 'idOfe' => $item->pivot['idOfe']])}}"><button class="consultar">Consultar Usuario</button></a>
-                    <a href="{{route('empresa.cambiarEstado', ["estado" => 'Aceptada', 'idUsu' => $item->pivot['idUsu'], 'idOfe' => $item->pivot['idOfe']] )}}"><button class="editar">Aceptar solicitud</button></a>
-                    <a href="{{route('empresa.cambiarEstado', ["estado" => 'Denegada', 'idUsu' => $item->pivot['idUsu'], 'idOfe' => $item->pivot['idOfe']] )}}"><button class="borrar">Denegar solicitud</button></a>
+                    <a href="{{route('empresa.usuario', ['idUsu' => $item->pivot['idUsu'], 'idOfe' => $item->pivot['idOfe']])}}"><button class="consultar">{{__('messages.check_user')}}</button></a>
+                    <a href="{{route('empresa.cambiarEstado', ["estado" => 'Aceptada', 'idUsu' => $item->pivot['idUsu'], 'idOfe' => $item->pivot['idOfe']] )}}"><button class="editar">{{__('messages.accept_request')}}</button></a>
+                    <a href="{{route('empresa.cambiarEstado', ["estado" => 'Denegada', 'idUsu' => $item->pivot['idUsu'], 'idOfe' => $item->pivot['idOfe']] )}}"><button class="borrar">{{__('messages.deny_request')}}</button></a>
                 @endforeach
             </div>
         @endforeach

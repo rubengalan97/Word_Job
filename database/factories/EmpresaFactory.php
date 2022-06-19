@@ -20,7 +20,6 @@ class EmpresaFactory extends Factory
         return [
             'idEmp'         => null,
             'nombre'        => $this->faker->name(),
-            'imagen'        => null,
             'descripcion'   => null,
             'idUsu'         => $this->faker->numberBetween(1, 10),
         ];

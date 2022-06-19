@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\Oferta::factory(10)->create();
 
 
+        $this->call([UsersTableSeeder::class]);
         $this->call([SolicitudTableSeeder::class]);
     }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,43 +10,41 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/nav.css') }}" >
     <link rel="stylesheet" type="text/css" href="{{ asset('css/botones.css') }}" >
     <script src="{{ asset('js/nav.js') }}"></script>
-    <title>Gestion Empresas</title>
+    <title>{{__('messages.business_manage')}}</title>
 </head>
 <body>
 
     <div class="topnav" id="myTopnav">
-        <a href="#" class="active">Gestionar Empresas</a>
-        <a href="{{route('admin.gestion')}}">Gestiones</a>
-        <a href="{{route('admin.usuarios')}}">Gestionar Usuarios</a>
-        <a href="{{route('admin.ofertas')}}">Gestionar Ofertas</a>
-        <a href="{{route("out")}}">Log out</a>
+        <a href="#" class="active">{{__('messages.business_manage')}}</a>
+        <a href="{{route('admin.gestion')}}">{{__('messages.manages')}}</a>
+        <a href="{{route('admin.usuarios')}}">{{__('messages.user_manage')}}</a>
+        <a href="{{route('admin.ofertas')}}">{{__('messages.offers_manage')}}</a>
+        <a href="{{route("out")}}">{{__('messages.log_out')}}</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
           <i class="fa fa-bars"></i>
         </a>
     </div>
 
     <div id="titulo">
-        <h1>Gestion de Empresas</h1>
+        <h1>{{__('messages.business_manage')}}</h1>
     </div>
 
     <div id="tabla">
         <table>
             <thead>
-                <th>Id Empresa</th>
-                <th>Nombre</th>
-                <th>Imagen</th>
-                <th>Descripcion</th>
-                <th colspan="2">Acciones</th>
+                <th>{{__('messages.business_id')}}</th>
+                <th>{{__('messages.business_name')}}</th>
+                <th>{{__('messages.description')}}</th>
+                <th colspan="2">{{__('messages.actions')}}</th>
             </thead>
             <tbody>
                 @foreach ($empresas as $empresa)
                 <tr>
                     <td>{{$empresa->idEmp}}</td>
                     <td>{{$empresa->nombre}}</td>
-                    <td>{{$empresa->imagen}}</td>
                     <td>{{$empresa->descripcion}}</td>
-                    <td><a class="link" href="{{route('admin.editarEmpresaAdmin', $empresa)}}"><button class="editar">Editar</button></a></td>
-                    <td><a class="link" href="{{route('admin.borrarEmpresa', $empresa)}}"><button class="borrar">Borrar</button></a></td>
+                    <td><a class="link" href="{{route('admin.editarEmpresaAdmin', $empresa)}}"><button class="editar">{{__('messages.edit')}}</button></a></td>
+                    <td><a class="link" href="{{route('admin.borrarEmpresa', $empresa)}}"><button class="borrar">{{__('messages.delete')}}</button></a></td>
                 </tr>
                 @endforeach
             </tbody>

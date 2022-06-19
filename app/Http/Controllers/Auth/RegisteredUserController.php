@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Empresa;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -34,16 +35,36 @@ class RegisteredUserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'nombre' => [ 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+        if($request->rol == 'usuario') {
+            $user = User::create([
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'ultimos_estudios' => $request->ultimos_estudios,
+                'descripcion' => $request->descripcion,
+                'imagen' => 'defaultUser.png',
+                'rol' => $request->rol,
+            ]);
+        }
+
+        if($request->rol == 'empresa') {
+            $user = User::create([
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'imagen' => 'defaultUser.png',
+                'rol' => $request->rol,
+            ]);
+
+            $empresa = Empresa::create([
+                'nombre' =>  $request->nombre,
+                'descripcion' =>  $request->descripcion,
+                'idUsu' => $user->idUsu,
+            ]);
+        }
 
         event(new Registered($user));
 

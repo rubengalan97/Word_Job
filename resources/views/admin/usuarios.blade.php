@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,30 +15,30 @@
 <body>
 
     <div class="topnav" id="myTopnav">
-        <a href="#" class="active">Gestionar Usuarios</a>
-        <a href="{{route('admin.gestion')}}">Gestiones</a>
-        <a href="{{route('admin.empresas')}}">Gestionar Empresas</a>
-        <a href="{{route('admin.ofertas')}}">Gestionar Ofertas</a>
-        <a href="{{route("out")}}">Log out</a>
+        <a href="#" class="active">{{__('messages.user_manage')}}</a>
+        <a href="{{route('admin.gestion')}}">{{__('messages.manages')}}</a>
+        <a href="{{route('admin.empresas')}}">{{__('messages.business_manage')}}</a>
+        <a href="{{route('admin.ofertas')}}">{{__('messages.offers_manage')}}</a>
+        <a href="{{route("out")}}">{{__('messages.log_out')}}</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
           <i class="fa fa-bars"></i>
         </a>
     </div>
 
     <div id="titulo">
-        <h1>Gestion de Usuarios</h1>
+        <h1>{{__('messages.user_manage')}}</h1>
     </div>
 
     <div id="tabla">
         <table>
             <thead>
                 <th>Id Usuario</th>
-                <th>Email</th>
-                <th>Imagen</th>
-                <th>Descripcion</th>
-                <th>Ultimos Estudios</th>
+                <th>{{__('messages.email')}}</th>
+                <th>{{__('messages.img')}}</th>
+                <th>{{__('messages.description')}}</th>
+                <th>{{__('messages.studies')}}</th>
                 <th>Rol</th>
-                <th colspan="2">Acciones</th>
+                <th colspan="2">{{__('messages.actions')}}</th>
             </thead>
             <tbody>
                 @foreach ($usuarios as $usuario)
@@ -49,8 +49,8 @@
                     <td>{{$usuario->descripcion}}</td>
                     <td>{{$usuario->ultimos_estudios}}</td>
                     <td>{{$usuario->rol}}</td>
-                    <td><a class="link" href="{{route('admin.editarUsuario', $usuario)}}"><button class="editar">Editar</button></a></td>
-                    <td><a class="link" href="{{route('admin.borrarUsuario', $usuario)}}"><button class="borrar">Borrar</button></a></td>
+                    <td><a class="link" href="{{route('admin.editarUsuario', $usuario)}}"><button class="editar">{{__('messages.edit')}}</button></a></td>
+                    <td><a class="link" href="{{route('admin.borrarUsuario', $usuario)}}"><button class="borrar">{{__('messages.delete')}}</button></a></td>
                 </tr>
                 @endforeach
             </tbody>

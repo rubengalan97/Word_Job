@@ -17,6 +17,9 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body>
+        {{-- <video autoplay muted loop id="video">
+            <source src="{{ asset('img/background.mp4') }}" type="video/mp4">
+          </video> --}}
         <div class="font-sans text-gray-900 antialiased">
             {{ $slot }}
         </div>
