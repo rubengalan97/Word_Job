@@ -47,33 +47,33 @@
 
                 <x-input id="usuario" class="mt-1"
                                 type="radio"
-                                name="rol" value="usuario" checked/>{{__('messages.user')}}
+                                name="rol" value="usuario" />{{__('messages.user')}}
                 <br>
                 
                 <x-input id="empresa" class="mt-1"
                                 type="radio"
-                                name="rol" value="empresa"/>{{__('messages.business')}}
+                                name="rol" value="empresa" />{{__('messages.business')}}
             </div>
 
             <!-- Inputs segun rol -->
 
             <div class="mt-4">
-                <x-label for="nombre" :value="__('messages.business_name')" />
+                <x-label for="nombre" class="nombre" :value="__('messages.business_name')" />
 
-                <x-input id="nombre" class="block mt-1 w-full" type="text" name="nombre" :value="old('name')" />
+                <x-input class="block mt-1 w-full nombre" type="text" name="nombre" :value="old('name')" />
             </div>
 
             <div class="mt-4">
-                <x-label for="ultimos_estudios" :value="__('messages.studies')" />
-
-                <textarea name="ultimos_estudios" id="ultimos_estudios" cols="40" rows="5"></textarea>
+                <x-label for="ultimos_estudios" class="ultimos_estudios" :value="__('messages.studies')" />
+                
+                <textarea name="ultimos_estudios" class="ultimos_estudios" cols="40" rows="5"></textarea>
 
             </div>
 
             <div class="mt-4">
-                <x-label for="descripcion" :value="__('messages.description')" />
+                <x-label for="descripcion" class="descripcion" :value="__('messages.description')" />
 
-                <textarea name="descripcion" id="descripcion" cols="40" rows="5"></textarea>
+                <textarea name="descripcion" class="descripcion" cols="40" rows="5"></textarea>
 
             </div>
 
