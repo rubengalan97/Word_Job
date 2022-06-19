@@ -24,25 +24,31 @@
         </a>
     </div>
 
-    <div class="cards">
-        @foreach ($ofertas as $oferta)
-        <div class="card">
-            <h2 class="titulos">
-                @foreach ($oferta->empresas() as $item)
-                {{__('messages.business')}}: {{$item->nombre}}
-                @endforeach
-            </h2>
-            <h3 class="titulos">{{__('messages.description')}}:</h3>
-            <p class="descripcion">{{$oferta->descripcion}}</p>
-            <h4 class="titulos">{{__('messages.city')}}:</h4>
-            <h4 class="titulos">
-                @foreach ($oferta->ciudades() as $item)
-                    {{$item->ciudad}}
-                @endforeach
-            </h4>
+    @if ($ofertas == '0')
+        
+    @else
+
+        <div class="cards">
+            @foreach ($ofertas as $oferta)
+            <div class="card">
+                <h2 class="titulos">
+                    @foreach ($oferta->empresas() as $item)
+                    {{__('messages.business')}}: {{$item->nombre}}
+                    @endforeach
+                </h2>
+                <h3 class="titulos">{{__('messages.description')}}:</h3>
+                <p class="descripcion">{{$oferta->descripcion}}</p>
+                <h4 class="titulos">{{__('messages.city')}}:</h4>
+                <h4 class="titulos">
+                    @foreach ($oferta->ciudades() as $item)
+                        {{$item->ciudad}}
+                    @endforeach
+                </h4>
+            </div>
+            @endforeach
         </div>
-        @endforeach
-    </div>
+
+    @endif
 
 </body>
 </html>
