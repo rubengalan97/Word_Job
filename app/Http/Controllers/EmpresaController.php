@@ -56,7 +56,6 @@ class EmpresaController extends Controller
         $empresa = Empresa::find($req->idEmp);
 
         $empresa->nombre = $req->nombre;
-        $empresa->imagen = $req->imagen;
         $empresa->descripcion = $req->descripcion;
         $empresa->save();
 

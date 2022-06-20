@@ -23,17 +23,6 @@ class UsuarioController extends Controller
     public function guardarPerfil(Request $req, $idUsu) {
 
         $user = User::find($idUsu);
-
-        if ($req->hasFile('imagen')) {
-
-            $file  = $req->file('imagen');
-            $destinationPath = '../img/';
-            $fileName = time().'-'.$file->getClientOriginalName();
-            $uplopadSuccess = $req->file('imagen')->move($destinationPath, $fileName);
-
-            $user->imagen = $destinationPath.$fileName ?? $user->imagen;
-        }
-
         $user->ultimos_estudios = $req->ultimos_estudios;
         $user->descripcion = $req->descripcion;
         $user->save();
