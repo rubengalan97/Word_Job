@@ -40,3 +40,8 @@ Esta aplicación nos proporciona tanto la creación como la búsqueda de empleo.
 
 ## Video checkpoint dia 13 de Mayo.
 - https://youtu.be/0SWkJ_jVc0M
+
+## Video sobre la explicación del proyecto.
+- https://youtu.be/UO4flCizNW8
+
+
