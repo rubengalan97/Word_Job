@@ -43,7 +43,7 @@ return [
     'create_offer' => 'Crear Oferta',
     'check_user' => 'Consultar Usuario',
     'es' => 'Español',
-    'en' => 'Inglés',
+    'en' => 'English',
     'language' => 'Idioma',
-
+    'user_data' => 'Datos del usuario',
 ];

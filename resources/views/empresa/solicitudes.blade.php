@@ -26,19 +26,21 @@
     </div>
 
     <div class="cards">
-        @foreach ($solicitudes as $solicitud)
-            <div class="card">
-                @foreach ($solicitud->solicitudes() as $item)
+        @foreach ($solicitudes as $solicitud)            
+            @foreach ($solicitud->solicitudes() as $item)
+                <div class="card">
                     <h2 class="titulos">
                         {{__('messages.email')}}: {{$item->email}}
                     </h2>
                     <h3 class="titulos">{{__('messages.offers')}}:</h3>
-                    <p class="descripcion">{{$item->pivot['idOfe']}}</p>
+                    <p class="descripcion">{{$item->pivot->pivotParent['descripcion']}}</p>
+                    <h3 class="titulos">{{__('messages.status')}}:</h3>
+                    <p class="descripcion">{{$solicitud->estado($item->pivot['idOfe'], $item->pivot['idUsu'])->estado}}</p>
                     <a href="{{route('empresa.usuario', ['idUsu' => $item->pivot['idUsu'], 'idOfe' => $item->pivot['idOfe']])}}"><button class="consultar">{{__('messages.check_user')}}</button></a>
                     <a href="{{route('empresa.cambiarEstado', ["estado" => 'Aceptada', 'idUsu' => $item->pivot['idUsu'], 'idOfe' => $item->pivot['idOfe']] )}}"><button class="editar">{{__('messages.accept_request')}}</button></a>
                     <a href="{{route('empresa.cambiarEstado', ["estado" => 'Denegada', 'idUsu' => $item->pivot['idUsu'], 'idOfe' => $item->pivot['idOfe']] )}}"><button class="borrar">{{__('messages.deny_request')}}</button></a>
-                @endforeach
-            </div>
+                </div>
+            @endforeach
         @endforeach
     </div>
     

@@ -43,8 +43,8 @@ return [
     'deny_request' => 'Deny Request',
     'create_offer' => 'Create Offer',
     'check_user' => 'Check User',
-    'es' => 'Spanish',
+    'es' => 'Español',
     'en' => 'English',
     'language' => 'Language',
-
+    'user_data' => 'User Data',
 ];
