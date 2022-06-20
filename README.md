@@ -44,4 +44,7 @@ Esta aplicación nos proporciona tanto la creación como la búsqueda de empleo.
 ## Video sobre la explicación del proyecto.
 - https://youtu.be/UO4flCizNW8
 
+## Página desplegada
+- https://worldjob.herokuapp.com/
+
 
