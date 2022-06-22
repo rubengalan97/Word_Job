@@ -47,4 +47,7 @@ Esta aplicación nos proporciona tanto la creación como la búsqueda de empleo.
 ## Página desplegada
 - https://worldjob.herokuapp.com/
 
+## Manual de Uso de la Aplicación
+[GuiaWorldJob.pdf](https://github.com/rubengalan97/World_Job/files/8956728/GuiaWorldJob.pdf)
+
 
