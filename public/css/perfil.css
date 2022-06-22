@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Martel&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -34,6 +37,7 @@
     text-align: center;
     margin-top: 50px;
     margin-bottom: 50px;
+    font-family: 'Martel', serif;
   }
 
   input[type=submit] {
