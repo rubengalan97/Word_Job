@@ -13,8 +13,7 @@ Esta aplicación nos proporciona tanto la creación como la búsqueda de empleo.
 - Las empresas podrán crear, editar y eliminar su perfil, además podrán consultar, crear, editar y eliminar sus ofertas.
 
 #### Admin
-- Los admins tendrán acceso a toda la gestión de la aplicación, es decir, podrán crear, editar y eliminar tanto empresas (ofertas y empresas en si) como usuarios
-(solicitudes y usuarios en si).
+- Los admins tendrán acceso a toda la gestión de la aplicación, es decir, podrán crear, editar y eliminar tanto empresas (ofertas y empresas en si) como usuarios.
 
 ## Tecnologías
 - En este apartado explicaré las tecnologías que voy a usar para la realización del proyecto.
@@ -50,4 +49,12 @@ Esta aplicación nos proporciona tanto la creación como la búsqueda de empleo.
 ## Manual de Uso de la Aplicación
 [GuiaWorldJob.pdf](https://github.com/rubengalan97/World_Job/files/8956728/GuiaWorldJob.pdf)
 
+## Bibliografía
 
+- Manual de Laravel: https://laravel.com/docs/8.x
+- Gestor de idiomas: https://www.youtube.com/watch?v=VYTy0v8pUGo
+- JQuery: https://www.w3schools.com/jquery/
+- Box Shadows: https://getcssscan.com/css-box-shadow-examples
+- Fuentes: https://fonts.google.com/
+- Paleta de colores: https://colorhunt.co/palette/ffe194e8f6efb8dfd84c4c6d
+- Despliegue con Heroku: https://www.youtube.com/watch?v=GE2Kmy8WL3g
